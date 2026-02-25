@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_spectacular',
     'rest_framework',
+    'django_elasticsearch_dsl',
     'accounts',
     'channels',
     'corsheaders',
@@ -203,9 +204,12 @@ SIMPLE_JWT = {
 
 ELASTICSEARCH_DSL = {
     "default": {
-        "hosts": "localhost:9200"
-    }
+        "hosts": "http://localhost:9200"
+    },
 }
+
+ELASTICSEARCH_DSL_AUTOSYNC = True
+ELASTICSEARCH_DSL_SIGNAL_PROCESSOR = "django_elasticsearch_dsl.signals.RealTimeSignalProcessor"
 
 # ============================================================================
 # FILE UPLOAD CONFIGURATION
